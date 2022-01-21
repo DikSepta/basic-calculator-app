@@ -1,4 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+## CALCULATOR APP
+
+Calculator app built using [Create React App](https://github.com/facebook/create-react-app), [Redux](https://redux.js.org/) & [Redux Toolkit](https://redux-toolkit.js.org/) as state management framework, [Styled-Component](https://styled-components.com/) as styling library, and [Redux-persist](https://github.com/rt2zz/redux-persist) as session handling. 
+This app has the following features :
+1. Calculate using basic operator : addition, substraction, multiplication, and division.
+2. Change display theme from 3 different themes.
+3. Persist calculator state when user close or refresh the tab.
 
 ## Available Scripts
 
