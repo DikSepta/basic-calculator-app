@@ -1,57 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
+import BasicCalculator from './pages/basic-calculator/basic-calculator.component';
+import { ThemeProvider } from "styled-components";
+import { THEME } from "./app/app.types.js";
+import { useSelector } from 'react-redux';
+import { selectTheme } from './app/redux/theme.slice';
+import styled from 'styled-components';
 
-function App() {
+const AppContainer = styled.div`
+    background-color: ${props=>props.theme.background.main};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+`;
+
+const App = () => {
+  const theme = useSelector(selectTheme);
+  console.log(THEME[1]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <ThemeProvider theme={
+      theme === 1 ? THEME[0]: (theme===2 ? THEME[1]:THEME[2])
+    }>
+      <AppContainer>
+        <BasicCalculator/>
+      </AppContainer>
+    </ThemeProvider>
   );
 }
 
